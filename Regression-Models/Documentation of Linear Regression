@@ -33,4 +33,4 @@ Residuals should be randomly scattered around zero without any discernible patte
 we observe a random scatter, it suggests that the model is a good fit for the data.
 then we plot the loss curve for linear regression using SGDREGRESSOR becuase sklearn's linear regrression doesn't have history for each iteration of the MSE error function 
 we can see that the model is drastically decreasing the MSE which is the common loss function in early stages then it reaches a plateu for each the test set and training set 
-trying to converge to a local minimum and the test set and training set loss trends are nearly identical which indicates them odel generalizing well to new data
+trying to converge to a local minimum and the test set and training set loss trends are nearly identical which indicates them model generalizing well to new data
