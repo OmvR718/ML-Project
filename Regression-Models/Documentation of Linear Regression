@@ -1,0 +1,35 @@
+This is the Documentation of Regression Models
+We Will Start with Linear Regression Model 
+first we import the nesccerasy libaries that we will be using later 
+We read the Dataframe of Houses in USA in washington State 
+it has 4600 houses listed and 18 features or columns for each house
+we call the describe method to look for outliers in any columns or anything that doesn't make like price of a listed house being zero or
+a house having a non integer number of bedrooms in example 
+we drop all the non-numeric columns because most of them are on no use even when encoded and we drop the yr_bulit and yr_renovatted because there correlation
+with house price is insignificant 
+we call a method called remove_outliers_all_columns using the IQR method to elimnate outlier columns making our model generalize well to new data by preventing 
+overfitting
+we add a new column called price_per_sqft which the name of it is very descriptive of what it does which is having for each house a new feature which is dividing
+its price/sqft_living sqft_living being the amount of space from the house from the inside we go back to the drop method used above and drop the sqft_lot column
+because it has very weak correlation with the price so it is insignificant in the predictions the same was done with yr_bulit and yr_renovated and condition columns
+we set or X and y values X being our feature matrix and y being our target variable which is the price of the house we want to predict 
+we look at the shape of our data we see after removing unnesccary columns and removing outliers and feature engineering the new column price_per_sqft we see 
+that our dimensions are (3726,10)
+we split our data into testing and training with test size being 20% of our dataset setting our random state variable to 42 to ensure reporductibility
+we instantiate the model linear regression from sklearn libary
+we fit the model to the training data
+we intitate a variable of our prediction called y_pred which is our prediction for the test set 
+we use the cross validation method to ensure our model is not memorizing the training set and overfitting it 
+we use the k-folds and intitate 5 folds in scoring we use the r2 scoring from the scores on the 5 folds we can see that the model has nearly the same r2 score on all 
+folds of our dataset
+we calculate the MSE MAE RMSE for out (y_test,y_pred)
+we plot a scatter plot using 
+matplotlib method (plt.scatterplot) to see if the our predctions and true values or close in value to each other 
+and plot the case of perfect predictions which is a straight line in red 
+after that the learning curve of the test set and training set is plotted 
+we can see that the MSE of both the training and test set we can see that our MSE is decreasing for the test set with each iteration in the training set 
+the we plot the residuals which is the diffrence between our y_test and our y_pred 
+Residuals should be randomly scattered around zero without any discernible pattern. This indicates that the model is capturing the underlying relationships in the data.
+we observe a random scatter, it suggests that the model is a good fit for the data.
+then we plot the loss curve for linear regression using SGDREGRESSOR becuase sklearn's linear regrression doesn't have history for each iteration of the MSE error function 
+we can see from the plot the with the first epochs the MSE is decresing drastically then it normalizes decreasing and increasing slightly with each epoch
