@@ -1,0 +1,26 @@
+This is the Documentation of Regression Models
+We will go now with the KNN  Model 
+first we import the nesccerasy libaries that we will be using later 
+We read the Dataframe of Houses in USA in washington State 
+it has 4600 houses listed and 18 features or columns for each house
+we call the describe method to look for outliers in any columns or anything that doesn't make like price of a listed house being zero or
+a house having a non integer number of bedrooms in example 
+we drop all the non-numeric columns because most of them are on no use even when encoded and we drop the yr_bulit and yr_renovatted because there correlation
+with house price is insignificant 
+we call a method called remove_outliers_all_columns using the IQR method to elimnate outlier columns making our model generalize well to new data by preventing 
+overfitting
+we add a new column called price_per_sqft which the name of it is very descriptive of what it does which is having for each house a new feature which is dividing
+its price/sqft_living sqft_living being the amount of space from the house from the inside we go back to the drop method used above and drop the sqft_lot column
+because it has very weak correlation with the price so it is insignificant in the predictions the same was done with yr_bulit and yr_renovated and condition columns
+we set or X and y values X being our feature matrix and y being our target variable which is the price of the house we want to predict 
+we look at the shape of our data we see after removing unnesccary columns and removing outliers and feature engineering the new column price_per_sqft we see 
+that our dimensions are (3726,10)
+we split our data into testing and training with test size being 20% of our dataset setting our random state variable to 42 to ensure reporductibility
+We grpah the MSE for diffrent values of k we can see clearly that the error increases drastically after k being equal to 2 so this is the best value of k we can get 
+we instansite our model as knn setting the n_neighbors = 2 and choosing the euclidean distance as our metric we fit the model to the data 
+we use the kfolds cross validation method ensuring that out model is not overfitting to training data in any way we use 5-Folds we can see for each fold 
+that the r2 score is very close to each other 
+then we calculate the MSE MAE and RMSE for our model on test and predictions
+we plot a scatter plot to see it the predictions are close to the real values of y which is our target variable 
+we plot the knn learning curve we can see from the learning curve that knn regressor is a lazy learner that is why the MSE doesn't change for the training data
+but changes drastically for validation or testing data 
