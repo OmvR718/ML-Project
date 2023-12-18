@@ -1,0 +1,16 @@
+This the Logistic Regression Classificastion of Eyes image Dataset
+the Dataset contains 4172 images with various images and various sizes the have been resized and extracted from them using the HOG feature descriptor 
+then a csv files was written using pandas and numpy that has a 4172 row each row has 8193 columns the last column has to be the value of of classfication label
+being for the eye dataset #'cataract','diabetic retinopathy','normal','glaucoma'#(1,2,3,4)
+since this is a logitic regression model it can only work with labels two labels only so we reduce the dataset by about 2000 row accounting for the two classes that we
+will not be using in the binary classification so the our dataset's shape is reduced to (2112,8193)
+our two classes are only diabetic_retinopathy and normal
+we split our data into X,y and the split X and y into training and testing
+we instantiate a logistic regression model named lr with a max_iter parameter =1000 which means it will iterate 1000 times before the coeffcients converge 
+we use cross validation test to ensure that out model won't overfit assigning k-Folds to 5 and the metric is accuracy and we get nearly identical accuracies 
+split the data into train and test and standarize it fit the model 
+and make predictions for the positive class then apply a threshold for each predicion in the arrays which gives you the prediction for each label being 0 or 1 
+a threshold is 0.8 which was used here 
+we plot the confusion matrix which we can see from it that the there only 2 false prediction on the 1st class and 15 false predictions on the 2nd class
+a  roc score of 0.96 score which indicates that the model has near perfect ability of discrimnation and it ensures threshold was chosen right 
+we use PCA to reduce our data into  data with 2 feature to plot an innacurate but helpflul representation of our data's descion boundary 
