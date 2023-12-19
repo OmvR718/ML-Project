@@ -1,0 +1,14 @@
+This the Documentation of k-Means Clustering For the Image Dataset being 4172 images and each image having 8193 features (8192 is a hog feature vector)
+we directly read and split the data into X and y
+since i was going to use umap and PCA to catch linear and no linear relations in my data a conserve variance with less amounts of column 
+the code commented in red was used for hyper parameter tuning of PCA and umap number of components number of neighbors for umap algorithim 
+but it takes too long to run it so since we already ran it and know the values it since been commented 
+ we Z-score Normalize our data having a mean of 0 and a variance of 1 we bulid our pipeline for our Standarized X so that PCA keeps 95% of the variance in the data 
+and umap with 30 neighbors and keeping only 2 features in the feature vector we fit and transform X in our pipeline 
+we call the function X.shape and it returns a tuple which is (4217,2) we fit the k-mean model with random state = 42 and 4 clusters corresponding to the 4 class labels
+that we had we look at the silhouette score and david bouldin index to see the quality of our clusters a score of 0.71 suggests that the clusters are well-defined and 
+the objects within each cluster are more similar to each other than to objects in other clusters and a score on the david bouldins index equals to 0.43 which is 
+close to zero indicated there is not much space in the cluster but there is much space between cluster which means they are well seperated 
+we plot the confusion matrix to see how our clusters we combined we can see from it the two of our four clusters are very similiar forming a bigger cluster 
+and 2 other cluster making us have 3 clusters in our data we use the elbow method trying values from (1,11) we can see the elbow is at 4 so 4 is the best no of clusters
+then thanks to umap and pca reducing our datapoints only to two features we can grpah the cluster assignments 
